@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:8080/api/css/Static.css"/>
+</head>
+<body th:fragment="commonInfoData">
+<table style="width:100%; ">
+    <thead >
+    <tr>
+        <td>
+            <div style="width:720px; text-align:center; border-bottom:1px solid black;">
+                <span>Bill Cum Receipt</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+            <table class="patientinfo" >
+                <tr style="gap:15px">
+                    <td>UHID</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.uhid}"></td>
+                    <td style="">Bill No</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.billNumber}"></td>
+                </tr>
+                <tr style="gap:15px" >
+                    <td>Patient Name</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.patientName}"></td>
+                    <td style="">Age</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.patientAge}"></td>
+                </tr>
+                <tr style="gap:15px">
+                    <td>Mobile Number</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.mobileNumber}">7745327830</td>
+                    <td style="width:80px; ">Date &amp; Time</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.billDate}">09-04-2024 06:19PM</td>
+                </tr>
+                <tr style="gap:15px">
+                    <td class="" style="width:120px;">Patient Category</td>
+                    <td class="">:</td>
+                    <td class="" th:text="${patientDetails.patientCategory}">Self</td>
+                    <td class="" style="" th:if="${OpdBillDetails.isSelf}">Bill Type</td>
+                    <td class="" th:if="${OpdBillDetails.isSelf}">:</td>
+                    <td class="" th:if="${OpdBillDetails.isSelf}">Self</td>
+                    <td  style="" th:if="${!OpdBillDetails.isSelf} or ${OpdBillDetails.both}">Company Name</td>
+                    <td  th:if="${!OpdBillDetails.isSelf} or ${OpdBillDetails.both}">:</td>
+                    <td  th:if="${!OpdBillDetails.isSelf} or ${OpdBillDetails.both}" th:text="${patientDetails.companyName}" style="white-space:nowrap"></td>
+                </tr>
+                <tr style="gap:15px">
+                    <td class="" style="width:16%">Referral Doctor</td>
+                    <td class="" style="padding-right:4px">:</td>
+                    <td class="" th:text="${patientDetails.referalDoctor}" style="width:40%"></td>
+                    <td class="" style=" width:20%">Department Name</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:50%;" th:text="${patientDetails.departmentName}"></td>
+                </tr>
+                <tr th:if="${!OpdBillDetails.isSelf}" style="gap:15px">
+                    <td class="" style="width:16%;">Tarrif Dispensary</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:40%;" th:text="${patientDetails.tariffDespansary}"></td>
+                    <td class="" style="width:14%;">Designation</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:50%;"></td>
+                </tr>
+                <tr th:if="${!OpdBillDetails.isSelf}" style="gap:15px">
+                    <td class="" style="width:16%; white-space:nowrap;">Railway Department</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:40%;"></td>
+                    <td class="" style="width:14%;" >Relation</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:50%;"></td>
+                </tr>
+                <tr th:if="${!OpdBillDetails.isSelf}" style="gap:15px">
+                    <td class="" style="width:16%;">Station</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:40%;"></td>
+                    <td class="" style="width:14%;">Medical Card No.</td>
+                    <td class="" style="padding-right:4px;">:</td>
+                    <td class="" style="width:50%;"></td>
+                </tr>
+            </table>
+    </tr>
+    </thead>
+</table>
+</body>
+</html>

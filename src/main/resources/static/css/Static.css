@@ -1,0 +1,132 @@
+
+body{
+    margin:0;
+    padding:0;
+   }
+
+.maintable {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+.header{
+
+-fs-table-paginate: paginate;
+}
+
+  .patientinfo {
+      width: 100%;
+  }
+
+  .patientinfo td {
+      font-size: 15px;
+  }
+
+  .patientinfo td:nth-child(1),
+  .patientinfo td:nth-child(4) {
+      font-weight: bold;
+  }
+
+ .servicesheading {
+      line-height:24px;
+      border-collapse: collapse;
+      -fs-table-paginate: paginate;
+  }
+
+  .servicesheading th,
+  .servicesheading td {
+      padding: 0px;
+      margin:0px;
+      font-size: 14px;
+  }
+
+  .servicesheading th {
+      font-weight: bold;
+  }
+
+  .footer-container {
+      margin-top: 20px;
+      font-size: 14px;
+  }
+
+  .footer-left, .footer-right {
+      vertical-align: top;
+  }
+
+  .total-in-words {
+      font-size: 14px;
+      margin-bottom: 10px;
+  }
+
+  .paymentinfo {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  .borderup {
+      border-bottom: 0.5px solid black;
+      border-collapse: collapse;
+  }
+  .borderbottom {
+      border-bottom: 1px solid black;
+      border-collapse: collapse;
+  }
+  .border-top{
+  border-top: 1px solid black;
+  border-collapse: collapse;
+  }
+
+  table, td, tr {
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+  }
+
+  .paymentinfo td {
+      border-bottom: 1px solid black;
+      border-collapse: collapse;
+  }
+
+  .footer {
+      width: 76%;
+      margin-left: 50px;
+  }
+
+  .footer td {
+      padding: 2px 0;
+  }
+
+  .footer td:first-child {
+      text-align: right;
+  }
+
+  .footer td:last-child {
+      text-align: right;
+  }
+
+  .vertical-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: black;
+  }
+
+  @page {
+    size: 210mm 148mm;
+    margin-top: 32mm;
+    margin-bottom: 55px;
+    margin-right: 10mm;
+    margin-left: 10mm;
+
+    @bottom-center {
+      content: element(footer);
+    }
+
+    @bottom-right {
+      content: counter(page) " / " counter(pages);
+      border-top: 1px solid black;
+      border-collapse: collapse;
+    }
+  }
+
+

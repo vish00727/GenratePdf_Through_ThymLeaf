@@ -1,0 +1,132 @@
+{
+  "doctorDetails": {
+    "doctorName": "Dr. Doctor Cardio",
+    "doctorEducation": "MBBS",
+    "registrationNo": null,
+    "doctorType": null,
+    "department": null,
+    "consultingHours": null
+  },
+  "patientDetails": {
+    "patientName": "Mr. Ankit Kene",
+    "billNumber": "OPBI&B676",
+    "billDate": "28-06-2024",
+    "totalAmount": 500.0,
+    "uhid": "AK/2024/000135",
+    "mobileNumber": "9237845298",
+    "patientAge": 62,
+    "paymentMode": null,
+    "billTime": "12:05 PM",
+    "isBillCancelled": false,
+    "companyName": "B G Shirke Construction Technology Pvt Ltd",
+    "patientCategory": "Company",
+    "isEmergency": "false",
+    "isServiceCodeApplicable": false,
+    "totalAmountInWords": null,
+    "referalDoctor": "  ",
+    "departmentName": "Cardiology",
+    "token": "I B H Radiology Counter / E786",
+    "gender": "Male",
+    "tariffDespansary": "PUNE",
+    "designation": null,
+    "railwayDepartment": null,
+    "relation": null,
+    "station": null,
+    "medicalCardNumber": null
+  },
+  "duplicatePrint": false,
+  "BillInfoArray": [
+    {
+      "patientBillDetails": null,
+      "paymentDetails": [],
+      "serviceDetails": [
+        {
+          "serviceName": "OPD CONSULTATION CHARGES",
+          "doctorName": "  ",
+          "totalAmount": 500.0,
+          "paidAmount": 0.0,
+          "netAmount": 500.0,
+          "serviceRate": 500.0,
+          "isFree": "false",
+          "serviceTariffCode": null,
+          "discountAmount": 0.0,
+          "qty": 1,
+          "outstandingAmount": 100.0,
+          "totalBillAmount": 500.0,
+          "refundAmount": 0.0,
+          "patientOutstandingAmount": null,
+          "companyOutstandingAmount": null,
+          "billType": "Self"
+        }
+      ],
+      "isSelf": true,
+      "isCompany": false,
+      "both": false,
+      "totalPaidAmountInWord": "ZERO RUPEES ONLY"
+    },
+    {
+      "patientBillDetails": null,
+      "paymentDetails": [],
+      "serviceDetails": [
+        {
+          "serviceName": "OPD CONSULTATION CHARGES",
+          "doctorName": "  ",
+          "totalAmount": 500.0,
+          "paidAmount": 0.0,
+          "netAmount": 500.0,
+          "serviceRate": 500.0,
+          "isFree": null,
+          "serviceTariffCode": "",
+          "discountAmount": 0.0,
+          "qty": 1,
+          "outstandingAmount": 400.0,
+          "totalBillAmount": 500.0,
+          "refundAmount": 0.0,
+          "patientOutstandingAmount": null,
+          "companyOutstandingAmount": null,
+          "billType": "Company"
+        }
+      ],
+      "isSelf": false,
+      "isCompany": true,
+      "both": false,
+      "totalPaidAmountInWord": "ZERO RUPEES ONLY"
+    },
+    {
+      "patientBillDetails": null,
+      "paymentDetails": [],
+      "serviceDetails": [
+        {
+          "serviceName": "OPD CONSULTATION CHARGES",
+          "doctorName": "  ",
+          "totalAmount": 500.0,
+          "paidAmount": 0.0,
+          "netAmount": 500.0,
+          "serviceRate": 500.0,
+          "isFree": null,
+          "serviceTariffCode": null,
+          "discountAmount": 0.0,
+          "qty": 1,
+          "outstandingAmount": null,
+          "totalBillAmount": 500.0,
+          "refundAmount": 0.0,
+          "patientOutstandingAmount": 100.0,
+          "companyOutstandingAmount": 400.0,
+          "billType": null
+        }
+      ],
+      "isSelf": false,
+      "isCompany": false,
+      "both": true,
+      "totalPaidAmountInWord": "ZERO RUPEES ONLY"
+    }
+  ],
+  "hospitalDetails": {
+    "hospitalImage": "/unit/1704712592084Logo 1.jpg",
+    "hospitalName": "INLAKS AND BUDHRANI HOSPITAL",
+    "hospitalAddress": "Pune",
+    "hospitalPhoneNumber": "8745210035",
+    "gstnNumber": "24AABCU9603R1ZT"
+  },
+  "defaultImage": null
+}

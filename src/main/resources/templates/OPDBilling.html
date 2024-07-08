@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:8080/api/css/Static.css"/>
+</head>
+<body>
+    <div  th:each="OpdBillDetails, iterStat:${billInfoArray}">
+        <div th:with="objectCounter=${iterStat.index+1}">
+            <span th:if="${objectCounter != 1}">
+                <div style="page-break-before:always"></div>
+            </span>
+        </div>
+        <div  th:replace="BottomData::bottomTableData"></div>
+    </div>
+</body>
+</html>

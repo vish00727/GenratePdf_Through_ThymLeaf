@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:8080/api/css/Static.css"/>
+</head>
+<body th:fragment="bottomTableData" >
+  <table class="servicesheading" style="width:100%">
+    <thead>
+    <tr>
+        <td colspan="6">
+            <div th:replace="CommonData::commonInfoData"></div>
+        </td>
+    </tr>
+    <tr style="padding-top:20px;">
+        <th class="borderbottom border-top" style="text-align:left;">Sr.No</th>
+        <th class="borderbottom border-top">Services</th>
+        <th class="borderbottom border-top">Doctor Name</th>
+        <th class="borderbottom border-top" style="text-align:center;">Quantity</th>
+        <th class="borderbottom border-top" style="text-align:right;">Rate</th>
+        <th class="borderbottom border-top" style="text-align:right; padding-right:7px">Total</th>
+    </tr>
+    </thead>
+    <tbody >
+    <tr style="padding-top:20px" class="borderup" th:each="service, iterstat: ${OpdBillDetails.serviceDetails} ">
+        <td class="borderup" style="text-align:left;" th:text="${iterstat.index + 1}"></td>
+        <td class="borderup" th:text="${service.serviceName}"></td>
+        <td class="borderup" style="white-space:nowrap;" th:text="${service.doctorName}"></td>
+        <td class="borderup" style="text-align:center;" th:text="${service.qty}"></td>
+        <td class="borderup" style="text-align:right;" th:text="${service.serviceRate}"></td>
+        <td class="borderup" style="text-align:right; padding-right:7px " th:text="${service.totalAmount}"></td>
+    </tr>
+    </tbody>
+    </table>
+<table>
+    <tr>
+    <td style="vertical-align:top;">
+        <table style="width:500px; line-height:24px;">
+            <tr >
+                <td colspan="4" style="font-size:11px; line"
+                    th:text="${OpdBillDetails.totalPaidAmountInWord}">EIGHTY-SIX THOUSAND THREE HUNDRED NINETY-THREE POINT
+                    EIGHT ONLY
+                </td>
+            </tr>
+            <tr>
+                <td style="border-bottom:1px solid black;">Receipt No.</td>
+                <td style="border-bottom:1px solid black;">Amount</td>
+                <td style="border-bottom:1px solid black;">Payment Mode</td>
+            </tr>
+            <tr th:each="payment : ${OpdBillDetails.paymentDetails}">
+                <td th:text="${payment.receiptNumber}"></td>
+                <td th:text="${payment.amount}"></td>
+                <td th:text="${payment.paymentType}"></td>
+            </tr>
+        </table>
+    </td>
+    <td style="border-right:1px solid black;" rowspan="4"></td>
+    <td style="width:40%;">
+        <table style="float:right; " th:each="billInfo,iterStat:${OpdBillDetails.serviceDetails}">
+            <tr>
+                <td style="text-align:right;">Total Bill Amount</td>
+                <td>:</td>
+                <td style="text-align:right; " th:text="'₹ ' + ${billInfo.totalBillAmount}">₹ 86393.8</td>
+            </tr>
+            <tr>
+                <td style="text-align:right;">Total Paid Amount</td>
+                <td>:</td>
+                <td style="text-align:right;" th:text="'₹ ' + ${billInfo.paidAmount}">₹ 0.0</td>
+            </tr>
+            <tr>
+                <td style="text-align:right; white-space:nowrap;">Outstanding Amount</td>
+                <td>:</td>
+                <td style="text-align:right; " th:text="'₹ ' + ${billInfo.outstandingAmount}">₹ 86393.8</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td style="padding-top:30px; text-align:right;">Cashier</td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+</body>
+</html>

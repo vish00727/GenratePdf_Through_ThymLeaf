@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:8080/api/css/Static.css"/>
+</head>
+<body>
+<table class="header" style="width:100%; border-collapse: collapse; ">
+    <thead>
+    <tr>
+        <td>
+            <div class="heading"
+                 style="width:100%; text-align:center; border-bottom:1px solid black; margin-bottom:2px">
+                <span>Bill Cum Receipt</span>
+            </div>
+            <table class="patientinfo ">
+                <tr>
+                    <td>UHID</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.uhid}"></td>
+                    <td style="padding-left:80px;">Bill No</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.billNumber}"></td>
+                </tr>
+                <tr>
+                    <td>Patient Name</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.patientName}"></td>
+                    <td style="padding-left:80px;">Age</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.patientAge}"></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.mobileNumber}">7745327830</td>
+                    <td style="width:70px; padding-left:80px;">Date &amp; Time</td>
+                    <td>:</td>
+                    <td th:text="${patientDetails.billDate}">09-04-2024 06:19PM</td>
+                </tr>
+                <tr>
+                    <td class="borderbottom" style="width:90px;">Patient Category</td>
+                    <td class="borderbottom">:</td>
+                    <td class="borderbottom" th:text="${patientDetails.patientCategory}"></td>
+                    <td class="borderbottom" style="padding-left:80px;" >Bill Type</td>
+                    <td class="borderbottom">:</td>
+                    <td class="borderbottom">Self</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </thead>
+    <div th:each="bill :${billInfoArray}">
+
+        <table class="servicesheading">
+            <thead>
+            <tr>
+                <th class="borderbottom">Sr.No</th>
+                <th class="borderbottom">Services</th>
+                <th class="borderbottom">Doctor Name</th>
+                <th class="borderbottom" style="text-align:center;">Quantity</th>
+                <th class="borderbottom" style="text-align:right;">Rate</th>
+                <th class="borderbottom" style="text-align:right;">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="borderup" th:each="service, iterstat: ${bill.serviceDetails}">
+                <td class="borderup" th:text="${iterstat.index + 1}"></td>
+                <td class="borderup" th:text="${service.serviceName}"></td>
+                <td class="borderup" style="white-space:nowrap;" th:text="${service.doctorName}"></td>
+                <td class="borderup" style="text-align:center;" th:text="${service.qty}"></td>
+                <td class="borderup" style="text-align:right;" th:text="${service.serviceRate}"></td>
+                <td class="borderup" style="text-align:right;" th:text="${service.totalAmount}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <table style="width:100%; page-break-inside: avoid;">
+            <td style="width:60%;">
+                <table>
+                    <tr style="">
+                        <td colspan="3" style="font-size:11px; margin-bottom:20px; padding-top:10px;"
+                            th:text="${bill.totalPaidAmountInWord}">EIGHTY-SIX THOUSAND THREE HUNDRED NINETY-THREE POINT
+                            EIGHT ONLY
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom:1px solid black;">Receipt No.</td>
+                        <td style="border-bottom:1px solid black;">Amount</td>
+                        <td style="border-bottom:1px solid black;">Payment Mode</td>
+                    </tr>
+                    <tr th:each="payment : ${bill.paymentDetails}">
+                        <td th:text="${payment.receiptNumber}"></td>
+                        <td th:text="${payment.amount}"></td>
+                        <td th:text="${payment.paymentType}"></td>
+                    </tr>
+                </table>
+            </td>
+            <td style="border-right:1px solid black;" rowspan="4"></td>
+            <td style="width:40%;">
+                            <table style="float:right; margin-top:-10px;">
+                                <tr>
+                                    <td style="text-align:right;">Total Bill Amount</td>
+                                    <td>:</td>
+                                    <td style="text-align:right; width:100px;" th:text="'₹ ' + ${bill.serviceDetails[0].totalBillAmount}">₹ 86393.8</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right;">Total Paid Amount</td>
+                                    <td>:</td>
+                                    <td style="text-align:right; width:100px;" th:text="'₹ ' + ${bill.serviceDetails[0].paidAmount}">₹ 0.0</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right;">Outstanding Amount</td>
+                                    <td>:</td>
+                                    <td style="text-align:right; width:100px;" th:text="'₹ ' + ${bill.serviceDetails[0].outstandingAmount}">₹ 86393.8</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td style="padding-top:30px; text-align:right;">Cashier</td>
+                                </tr>
+                               </table>
+                               </td>
+                               </table>
+                               </div>
+                               </table>
+                               </body>
+                               </html>
